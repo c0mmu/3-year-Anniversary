@@ -12,10 +12,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url('image/background.jpg');
-  background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
-  background-position: center; /* 이미지 중앙 정렬 */
-  background-repeat: no-repeat; /* 이미지 반복하지 않음 */
 }
 
 .logo-screen img {
