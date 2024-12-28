@@ -1,5 +1,9 @@
 /* 공통 스타일 */
 body {
+  background-image: url('path/to/배경화면.jpg');
+  background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
+  background-position: center; /* 이미지 중앙 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복하지 않음 */
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -12,7 +16,10 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: #fffae6;
+  background-image: url('path/to/배경화면.jpg');
+  background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
+  background-position: center; /* 이미지 중앙 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복하지 않음 */
 }
 
 .logo-screen img {
