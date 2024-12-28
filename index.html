@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-Day Countdown Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 로고 화면 -->
+  <div id="logo-screen" class="logo-screen">
+    <img src="image/logo.png" alt="Logo" id="logo">
+  </div>
+
+  <!-- 캘린더 화면 -->
+  <div id="calendar-screen" class="hidden">
+  <section class="grid-1">
+    <div class="title flex-col">
+      <h1>Countdown to May 14</h1>
+      <div class="countdown">
+        <span id="countdown" style="color: rgb(255, 158, 169);">Loading...</span> until May 14
+      </div>
+    </div>
+    <div class="calendar">
+      <!-- Calendar days will be dynamically added -->
+    </div>
+  </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

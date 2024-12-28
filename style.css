@@ -1,0 +1,121 @@
+/* 공통 스타일 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* 로고 화면 스타일 */
+.logo-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #fffae6;
+}
+
+.logo-screen img {
+  width: 300px;
+  cursor: pointer;
+}
+
+/* 숨김 처리 */
+.hidden {
+  display: none;
+}
+
+/* 캘린더 화면 스타일 */
+.grid-1 {
+  padding-top: 300px; /* 상단 여백만 추가 */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.title h1 {
+  font-family: 'CustomFont', sans-serif;
+  color: #ff6b6b;
+}
+
+.countdown {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.door {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+}
+
+.front {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.back {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fffae6;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #333;
+}
+
+/* 팝업 오버레이 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup img {
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
