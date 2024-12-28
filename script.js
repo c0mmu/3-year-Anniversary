@@ -7,7 +7,6 @@ document.getElementById('logo').addEventListener('click', () => {
 console.log("Target Date:", targetDate.toISOString());
 console.log("Current Date:", now.toISOString()); 
 
-document.addEventListener('DOMContentLoaded', function () {
 // Countdown Timer
 const countdownElement = document.getElementById('countdown');
 const targetDate = new Date(2025, 4, 14, 0, 0, 0); // May 14, 2025
@@ -83,4 +82,4 @@ function showPopup(imageSrc, altText) {
   popup.appendChild(closeBtn);
   overlay.appendChild(popup);
   document.body.appendChild(overlay);
-}};
+}
