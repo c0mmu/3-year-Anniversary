@@ -4,6 +4,9 @@ document.getElementById('logo').addEventListener('click', () => {
   document.getElementById('calendar-screen').classList.remove('hidden');
 });
 
+console.log("Target Date:", targetDate.toISOString());
+console.log("Current Date:", now.toISOString()); 
+
 // Countdown Timer
 const countdownElement = document.getElementById('countdown');
 const targetDate = new Date(2025, 4, 14, 0, 0, 0); // May 14, 2025
