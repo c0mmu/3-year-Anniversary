@@ -1,6 +1,6 @@
 /* 공통 스타일 */
 body {
-  background-image: url('path/to/배경화면.jpg');
+  background-image: url('image/배경화면.jpg');
   background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
   background-position: center; /* 이미지 중앙 정렬 */
   background-repeat: no-repeat; /* 이미지 반복하지 않음 */
@@ -16,7 +16,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url('path/to/배경화면.jpg');
+  background-image: url('image/배경화면.jpg');
   background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
   background-position: center; /* 이미지 중앙 정렬 */
   background-repeat: no-repeat; /* 이미지 반복하지 않음 */
