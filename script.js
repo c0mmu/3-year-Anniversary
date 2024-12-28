@@ -10,15 +10,16 @@ const targetDate = new Date(2025, 4, 14, 0, 0, 0); // May 14, 2025
 
 function updateCountdown() {
   const now = new Date();
-  const difference = targetDate - now;
+  let difference = targetDate - now;
 
   if (difference > 0) {
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const months = targetDate.getMonth() - now.getMonth() + (12 * (targetDate.getFullYear() - now.getFullYear()));
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24)) % 30; // Approximation for days in a month
     const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((difference / (1000 * 60)) % 60);
     const seconds = Math.floor((difference / 1000) % 60);
 
-    countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdownElement.textContent = `${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
   } else {
     countdownElement.textContent = "The countdown is over!";
   }
