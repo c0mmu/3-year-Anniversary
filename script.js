@@ -15,15 +15,18 @@ const modal = document.getElementById('image-modal');
 const modalContent = document.getElementById('modal-img');
 const closeBtn = document.getElementById('close-btn');
 
-// 4월 15일 시작 → 앞에 두 칸 빈 칸
-for (let j = 0; j < 2; j++) {
-  const emptyDiv = document.createElement('div');
-  emptyDiv.className = 'day';
-  emptyDiv.style.visibility = 'hidden';
-  grid.appendChild(emptyDiv);
-}
+// D-day 칸 (두 칸 합치기)
+const dDayDiv = document.createElement('div');
+dDayDiv.className = 'day dday-cell';
+dDayDiv.style.gridColumn = 'span 2'; // 두 칸 병합
+dDayDiv.innerHTML = `
+  <div id="d-day-text" class="d-day-text"></div>
+  <div id="countdown-text" class="countdown-text"></div>
+  <div class="anniv-text">3주년을 향하여</div>
+`;
+grid.appendChild(dDayDiv);
 
-// 캘린더 생성
+// === 캘린더 생성 ===
 for (let i = 0; i < 30; i++) {
   const dayBtn = document.createElement('div');
   dayBtn.className = 'day';
@@ -35,18 +38,19 @@ for (let i = 0; i < 30; i++) {
   dayBtn.appendChild(iconImg);
 
   // 날짜 텍스트
-  const dateObj = new Date(2025, 3, 15 + i); // 4월 = 3월
+  const dateObj = new Date(2025, 3, 15 + i);
   const month = dateObj.getMonth() + 1;
   const day = dateObj.getDate();
   const dayNumber = document.createElement('span');
   dayNumber.textContent = `${month}월 ${day}일`;
   dayBtn.appendChild(dayNumber);
 
-  // === 클릭 이벤트 ===
+  // 이미 열었는지 체크
   if (openedDays[i]) {
     dayBtn.classList.add('opened');
   }
 
+  // 클릭 이벤트 (제한 없음)
   dayBtn.addEventListener('click', () => {
     if (!openedDays[i]) {
       openedDays[i] = true;
@@ -58,8 +62,9 @@ for (let i = 0; i < 30; i++) {
     modal.style.display = 'flex';
     modalContent.innerHTML = '';
 
-    // === 이미지 1~8장 랜덤 확장자 ===
     let hasContent = false;
+
+    // === 이미지 시도 ===
     for (let count = 1; count <= 8; count++) {
       const baseFile = `icons/day${i + 1}_${count}`;
       const slide = document.createElement('div');
@@ -121,7 +126,6 @@ for (let i = 0; i < 30; i++) {
         });
       }
 
-      // Swiper 초기화
       setTimeout(() => {
         if (window.swiperInstance) {
           window.swiperInstance.destroy(true, true);
@@ -136,7 +140,6 @@ for (let i = 0; i < 30; i++) {
       }, 600);
     }).catch(() => {});
 
-    // Swiper 이미지만 있어도 초기화
     setTimeout(() => {
       if (hasContent) {
         if (window.swiperInstance) {
@@ -162,3 +165,37 @@ for (let i = 0; i < 30; i++) {
 closeBtn.onclick = function () {
   modal.style.display = 'none';
 };
+
+// === D-Day & 카운트다운 ===
+function updateDDay() {
+  const now = new Date(new Date().getTime() + (new Date().getTimezoneOffset() * 60000) + 9 * 60 * 60 * 1000);
+  const target = new Date(2025, 4, 14, 0, 0, 0); // 5월 14일 자정
+
+  const diffTime = target.getTime() - now.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  const dDayText = document.getElementById('d-day-text');
+  const countdownText = document.getElementById('countdown-text');
+
+  if (diffDays > 0) {
+    dDayText.textContent = `D-${diffDays}`;
+  } else if (diffDays === 0) {
+    dDayText.textContent = `🎉 오늘은 3주년! 🎉`;
+  } else {
+    dDayText.textContent = `3주년이 지났습니다`;
+  }
+
+  // 자정까지 카운트다운
+  const midnight = new Date(now);
+  midnight.setHours(24, 0, 0, 0);
+  const remain = midnight - now;
+
+  const hours = String(Math.floor((remain / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+  const minutes = String(Math.floor((remain / (1000 * 60)) % 60)).padStart(2, '0');
+  const seconds = String(Math.floor((remain / 1000) % 60)).padStart(2, '0');
+
+  countdownText.textContent = `-${hours}:${minutes}:${seconds}`;
+}
+
+updateDDay();
+setInterval(updateDDay, 1000);

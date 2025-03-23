@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'GmarketSansMedium', sans-serif;
+}
+
+.day, 
+.d-day-text, 
+.countdown-text, 
+.anniv-text, 
+.modal, 
+.swiper-slide {
+  font-family: 'GmarketSansMedium', sans-serif;
+}
+
+
 /* 전체 레이아웃 */
 body {
   margin: 0;
@@ -175,4 +195,32 @@ body, html {
   }
 }
 
+.dday-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 5px;
+  height: 100px;
+  grid-column: span 2;
+  color: white;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
+  background: transparent;  /* 완전 투명 배경 */
+}
 
+.d-day-text {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.countdown-text {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.anniv-text {
+  font-size: 1rem;
+}
