@@ -132,6 +132,7 @@ body, html {
   max-width: 90%;
   max-height: 80vh;
   object-fit: contain;
+  overflow: auto; /* 핵심! */
 }
 
 
