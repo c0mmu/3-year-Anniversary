@@ -1,0 +1,170 @@
+/* 전체 레이아웃 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('배경.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 캘린더 컨테이너 */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* 타이틀 이미지 */
+.title-img {
+  max-width: 400px;
+  width: 90%;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+/* 타이틀 이미지2 */
+.title-img-2 {
+  max-width: 150px;
+  width: 90%;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+/* PC 화면에서 간격 넓히기 */
+@media (min-width: 1024px) {
+  .grid {
+    gap: 20px; /* 간격 넓게 */
+    max-width: 700px; /* 전체 너비도 넓게 */
+  }
+}
+
+/* 날짜 박스 */
+.day {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Hover 효과 */
+.day:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* 아이콘 */
+.icon-img {
+  width: 50%;
+  max-width: 60px;
+  object-fit: contain;
+}
+
+.day span {
+  margin-top: 5px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 14px;
+}
+
+/* 모달 */
+.modal {
+  display: none; /* 반드시 숨김 상태로 시작 */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Swiper */
+.swiper {
+  width: 90%;
+  max-width: 1500px;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 추가: 슬라이드 내부 중앙 */
+}
+
+/* 슬라이드 내부 */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 이미지 */
+.swiper-slide img {
+  width: auto;
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+
+/* 닫기 버튼 */
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* 정보 텍스트 */
+.info {
+  margin-top: 20px;
+  font-style: italic;
+  color: #aaa;
+}
+
+/* 기본 아이콘 스타일 */
+.icon-img {
+  width: 100%;
+  max-width: 70px; /* 기본 크기 살짝 키움 */
+  object-fit: contain;
+}
+
+/* 모바일 특화 */
+@media (max-width: 480px) {
+  .icon-img {
+    width: 50%;
+    max-width: 50px; /* 모바일에서는 최대 50px로 제한 */
+  }
+}
+
+/* PC 특화 */
+@media (min-width: 1024px) {
+  .icon-img {
+    max-width: 90px; /* PC에서는 최대 90px까지 크게 */
+  }
+}
+
+
